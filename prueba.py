@@ -1,8 +1,9 @@
 import threading
-
+import time
 def contar():
     contador = 0
     while True:
+        time.sleep(2)
         contador+=1
         print('Hilo:', 
               threading.current_thread().getName(), 
