@@ -1,3 +1,4 @@
+
 '''
 nom = ["Macia", "Guillem", "Yago", "Rosa", "Victor"]
 

@@ -18,7 +18,7 @@ if __name__ == '__main__':
     c2 = Coche("Ferrari", "Huracán", "200hp")
     c3 = Coche("Mazda", "MX5", "180hp")
 
-    #coches = [c1, c2, c3]
+    coches = [c1, c2, c3]
     ganador = random.choice([c1, c2, c3])
     #c = Carrera(coches)
     #c.empieza_carrera()
