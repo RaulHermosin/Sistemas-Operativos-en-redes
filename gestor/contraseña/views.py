@@ -3,6 +3,9 @@ from django.http import JsonResponse
 import pdb
 from django.views.decorators.csrf import csrf_exempt
 import json
+import requests
+from contraseña.models import  usuario
+
 
 
 # Create your views here.
@@ -11,14 +14,13 @@ def index(request):
 
 @csrf_exempt
 def añadir(request):
-    
-    #response={
-    #    "Usuario": HttpResponse(usuario),
-    #    "Contraseña": HttpResponse(contraseña)
-    #}
-    pdb.set_trace()
-    string_body = request.body.decode('utf8').replace("'", '"')
+
+    string_body = request.body.decode('utf8').replace("'", '"') 
     body = json.loads(string_body)
-    body['usuario']
-    response =  {}     
+    #pdb.set_trace()
+    nuevo_usuario = usuario(usuario=body['usuario'] ,contraseña=body['contraseña'])
+    nuevo_usuario.save()
+    #body['usuario']
+    
+    response = {"Info": "correcta"}
     return JsonResponse(response)
