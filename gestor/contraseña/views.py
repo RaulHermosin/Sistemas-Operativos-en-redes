@@ -4,7 +4,7 @@ import pdb
 from django.views.decorators.csrf import csrf_exempt
 import json
 import requests
-from contraseña.models import  usuario
+from contraseña.models import usuario
 from django.views.decorators.csrf import csrf_exempt
 from django.db import models
 
@@ -46,9 +46,9 @@ def actualizar(request):
 
     string_body = request.body.decode('utf8').replace("'", '"') 
     body = json.loads(string_body)
-    #pdb.set_trace()
-    actualizar_contra = usuario.objects.get(id=body['id'], usuario=body['usuario'], contraseña = body['contraseña'])
-    actualizar_contra.update()
+    actualizar_contra = usuario.objects.filter(id=body['id'])
+    pdb.set_trace()
+    actualizar_contra.update(contraseña = body['contraseña'])
     
     response = {"Info": "correcta"}
     return JsonResponse(response)
